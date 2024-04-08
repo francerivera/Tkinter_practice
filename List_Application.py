@@ -4,7 +4,7 @@ from tkinter import filedialog, simpledialog, messagebox, scrolledtext
 root = Tk()
 root.title("mid_LA3-RIVERA")
 root.geometry("400x400")
-
+root.resizable(False,False)
 
 def open():
     fd = filedialog.askopenfile(mode='r')
@@ -82,8 +82,18 @@ root.config(menu=menubar)
 frame = Frame(root, width=400, height=400, bg="#79d083")
 frame.pack(fill=X, expand=True)
 
+label = Label(frame, text="List Application", font=("Arial", 16, "bold"), bg="#79d083")
+label.pack(pady=10)
 
-listbox = Listbox(frame, width=40, height=30)
+
+frame2 = Frame(frame, width=400, height=400, bg="#79d083")
+frame2.pack()
+
+
+scrollbar = Scrollbar(frame2)
+scrollbar.pack(side=RIGHT, fill=Y, pady=30)
+
+listbox = Listbox(frame2, width=40, height=30, yscrollcommand=scrollbar.set)
 listbox.pack(pady=30)
 
 
